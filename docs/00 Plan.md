@@ -9,3 +9,8 @@ Review all token EIP in this two weeks, with the reference of those steps as fol
 5. test the implement token contract via Remix+Testnet and Truffle+Ganache.
 6. when this job finished, you should do some conclusion work in your github and blogs.
 
+
+
+others:
+
+1. you can adjust your docs after the test stage.

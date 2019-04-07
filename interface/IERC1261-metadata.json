@@ -1,0 +1,14 @@
+{
+    "title": "Organization Metadata",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Identifies the organization to which this MVT represents"
+      },
+      "description": {
+        "type": "string",
+        "description": "Describes the organization to which this MVT represents"
+      }
+    }
+  }

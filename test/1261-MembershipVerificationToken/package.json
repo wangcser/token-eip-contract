@@ -1,0 +1,75 @@
+{
+  "name": "membershipverificationtoken",
+  "version": "2.4.3",
+  "description": "Standard Implementation and interface for Membership Verification Token",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start:blockchain:client": "bash ./scripts/start-blockchain.sh",
+    "stop:blockchain:client": "bash ./scripts/stop-blockchain.sh",
+    "test": "npm run start:blockchain:client & sudo truffle migrate --reset --compile-all && truffle test --network development",
+    "post-test": "npm run stop:blockchain:client",
+    "coverage": "touch allFiredEvents & sudo ./node_modules/.bin/solidity-coverage",
+    "precommit": "lint-staged && solhint \"contracts/*.sol\"",
+    "prettier": "prettier --write \"**/*.{js,json,css,md}\"",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "lint:sol": "solhint contracts/**/*.sol",
+    "lint:js": "eslint test/**/*.js"
+  },
+  "lint-staged": {
+    "**/*.{js,json,css,md}": [
+      "prettier --write --print-width 150",
+      "git add"
+    ]
+  },
+  "files": [
+    "contracts",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaitanyapotti/MembershipVerificationToken.git"
+  },
+  "author": "Chaitanya Potti",
+  "bugs": {
+    "url": "https://github.com/chaitanyapotti/MembershipVerificationToken/issues"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts",
+    "protocol",
+    "electus",
+    "eip-1261",
+    "Membership Verification Token",
+    "Organizations",
+    "Decentralized",
+    "Governance"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/chaitanyapotti/MembershipVerificationToken#readme",
+  "dependencies": {
+    "ganache-cli": "^6.3.0",
+    "openzeppelin-solidity": "2.0.0",
+    "truffle-assertions": "^0.8.0"
+  },
+  "devDependencies": {
+    "solidity-coverage": "^0.5.11",
+    "eslint": "^5.13.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-mocha": "^5.2.1",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "lint-staged": "^8.1.3",
+    "prettier": "^1.16.4",
+    "solhint": "^2.0.0",
+    "husky": "^1.3.1"
+  }
+}
