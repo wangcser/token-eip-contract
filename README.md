@@ -1,4 +1,4 @@
-# All EIP Token Standard Collection
+# Token EIP Collection
 
 Work flow:
 
