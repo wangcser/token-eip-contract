@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>240</y>
+      <w>400</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Interface: MetaData
+--
++ name(): string
++ symbol(): string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>410</y>
+      <w>400</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Interface: ClassMetaData
+--
+# use for SFT
++ className(uint256 cid): string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>240</y>
+      <w>470</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Interface: Transfer
+--
++ transfer(address to, uint256 value): bool
++ transfer(address t0, uint256 tid): bool
++ transfer(address to, uint256 cid, uint256 value): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>420</y>
+      <w>470</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Interface: Approve
+--
++ approve(address to, uint256 value): bool
++ approve(address to, uint256 tid): bool
++ approve(address to, uint256 cid, uint256 value): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>510</y>
+      <w>470</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Interface: Allowance
+--
++ allowance(address owner, address operator): uint256
++ allowance(address owner, address operator, uint256 tid): bool
++ allowance(address owner, address operator, uint256 cid): uint256
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>330</y>
+      <w>470</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Interface: TransferFrom
+--
++ transferFrom(address from, address to, uint256 value): bool
++ transferFrom(address from, address t0, uint256 tid): bool
++ transferFrom(address from, address to, uint256 cid, uint256 value): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1180</x>
+      <y>240</y>
+      <w>400</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Interface: TotalSupply
+--
++ totalSupply(): uint256 value
++ totalSupply(): uint256 tokenNum
++ totalSupply(): uint256 =&gt; uint256 {cid: value}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1180</x>
+      <y>320</y>
+      <w>400</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Interface: UserBalance
+--
++ BalanceOf(address): uint256
++ BalanceOf(address): uint256[] user_tid_list
++ BalanceOf(address): uint256 =&gt; uint256 {cid: value}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1180</x>
+      <y>570</y>
+      <w>400</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Interface: TokenOwnerShip
+--
+# use for NFT
++ ownerOf(uint256 tid): address
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>340</y>
+      <w>400</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Interface: Decimal
+--
+# use for FT
++ decimals(): uint8
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1180</x>
+      <y>430</y>
+      <w>400</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Interface: ClassSupply
+--
+# use for SFT
++ eachClassSupply(uint256 cid): uint256 value
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1180</x>
+      <y>500</y>
+      <w>400</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Interface: TotalTokenList
+--
+# use for NFT
++ totalTokens(): uint256[] tid_list
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>480</y>
+      <w>400</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Interface: URI
+--
+# use for NFT
++ tokenURI(uint256 tid): string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

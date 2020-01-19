@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>16</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2272</x>
+      <y>544</y>
+      <w>736</w>
+      <h>448</h>
+    </coordinates>
+    <panel_attributes>ERC20
+--
+- _balances: address =&gt; uint256
+- _allowed: address =&gt; (address =&gt; uint256)
+- _totalSupply uint256
+--
++ totalSupply(): uint256
++ balanceOf(address owner): uint256
++ allowance(address owner, address spender): uint256
++ transfer(address to, uint256 value): bool
++ approve(address spender, uint256 value): bool
++ transferFrom(affress from, address to, uint256 value): bool
++ increaseAllowance(address spender, uint256 addedValue): bool
++ decreaseAllowance(address spender, uint256 subtractedValue): bool
+- _transfer(address from, address to, uint256 value)
+- _mint(address account, uint256 value)
+- _burn(address account, uint256 value)
+- _approve(address owner, address spender, uint256 value)
+- _burnFrom(address account, uint256 value)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1984</x>
+      <y>224</y>
+      <w>640</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>Interface: IERC20
+--
++ transfer(address to, uint256 value): bool
++ approve(address spender, uint256 value): bool
++ transferFrom(address from, address to, uint256 value): bool
++ function totalSupply(): uint256
++ balanceOf(address who): uint256
++ allowance(address owner, address spender): uint256
+--
+Transfer(address from, address to, uint256 value)
+Approval(address owner, address spender, uint256 value)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3040</x>
+      <y>304</y>
+      <w>416</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>library: SafeMath
+--
+- mul(uint256 a, uint256 b): uint256
+- div(uint256 a, uint256 b): uint256
+- sub(uint256 a, uint256 b): uint256
+- add(uint256 a, uint256 b): uint256
+- mod(uint256 a, uint256 b): uint256</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2272</x>
+      <y>1104</y>
+      <w>736</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>ERC20Burnable
+--
++ burn(uint256 value)
++ burnFrom(address from, uint256 value)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1040</x>
+      <y>368</y>
+      <w>368</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>library: Roles
+--
+- Role {bearer: address =&gt; bool}
+--
+- add(Role role, address account)
+- remove(Role role, address account)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1216</x>
+      <y>544</y>
+      <w>432</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>PauserRole
+--
+- _pasuers: Roles.Role
+--
+- constructor()
+- onlyPauser() modifier
+- _addPauser(address account)
+- _removePauser(address account)
++ isPauser(address account): bool
++ addPauser(address account) onlyPauser
++ renouncePauser()
+--
+PauserAdded(address account)
+PauserRemoved(address account)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>928</x>
+      <y>1104</y>
+      <w>480</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>ERC20Mintable
+--
++ mint(address to, uint256 value) onlyMinter</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>928</x>
+      <y>1248</y>
+      <w>480</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>ERC20Capped
+--
+- _cap: uint256
+--
++ constructor(uint256 cap)
++ cap(): uint256
+- _mint(address account, uint256 value)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>208</y>
+      <w>736</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>CapperRole
+--
+- _cappers: Roles.Role
+--
+- constructor()
+- onlyCapper() modifier
+- _addCapper(address account)
+- _removeCapper(address account)
++ isCapper(address account): bool
++ addCapper(address account) onlyCapper
++ renounceCapper()
+--
+CapperAdded(address account)
+CapperRemoved(address account)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>784</x>
+      <y>544</y>
+      <w>416</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>MinterRole
+--
+- _minters: Roles.Role
+--
+- constructor()
+- onlyMinter() modifier
+- _addMinter(address account)
+- _removeMinter(address account)
++ isMinter(address account): bool
++ addMinter(address account) onlyMinter
++ renounceMinter()
+--
+MinterAdded(address account)
+MinterRemoved(address account)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>816</y>
+      <w>736</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>WhitelistAdminRole
+--
+- _whitelistAdmins: Roles.Role
+--
+- constructor()
+- onlyWhitelistAdmin() modifier
+- _addWhitelistAdmin(address account)
+- _removeWhitelistAdmin(address account)
++ isWhitelistAdmin(address account): bool
++ addWhitelistAdmin(address account) onlyWhitelistAdmin
++ renounceWhitelistAdmin()
+--
+WhitelistAdminAdded(address account)
+WhitelistAdminRemoved(address account)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>512</y>
+      <w>736</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>SignerRole
+--
+- _signers: Roles.Role
+--
+- constructor()
+- onlySigner() modifier
+- _addSigner(address account)
+- _removeSigner(address account)
++ isSigner(address account): bool
++ addSigner(address account) onlySigner
++ renounceSigner()
+--
+SignerAdded(address account)
+SignerRemoved(address account)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>1120</y>
+      <w>736</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>WhitelistedRole
+--
+- _whitelisteds: Roles.Role
+--
+- constructor()
+- onlyWhitelisted() modifier
+- _addWhitelisted(address account)
+- _removeWhitelisted(address account)
++ isWhitelisted(address account): bool
++ addWhitelisted(address account) onlyWhitelisted
++ renounceWhitelisted()
+--
+WhitelistedAdded(address account)
+WhitelistedRemoved(address account)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1664</x>
+      <y>544</y>
+      <w>592</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>ERC20Detailed
+--
+- _name: string
+- _symbol: string
+- _decimals: uint8
+--
++ constructor(string name, string symbol, uint8 decimals)
++ name(): string
++ symbol(): string
++ decimals(): uint8</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1424</x>
+      <y>1104</y>
+      <w>832</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>ERC20Pausable
+--
++ transfer(address to, uint256 value) whenNotPaused: bool
++ transferFrom(address from, address to, uint256 value) whenNotPaused: bool
++ approve(address spender, uint256 value) whenNotPaused: bool
++ increaseAllowance(address spender, uint addedValue) whenNotPaused: bool
++ decreaseAllowance(address spender, uint subtractedValue) whenNotPaused: bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3040</x>
+      <y>544</y>
+      <w>736</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>library: SafeERC20
+--
+- safeTransfer(IERC20 token, address to, uint256 value)
+- safeTransferFrom(IERC20 token, address from, address to uint256 value)
+- safeApprove(IERC20 token, address spender, uint256 value)
+- safeIncreaseAllowance(IERC20 token, address spender, uint256 value)
+- safeDecreaseAllowance(IERC20 token ,address spender, uint256 value)
+- callOptionalRetuen(IERC20 token, bytes data)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3488</x>
+      <y>384</y>
+      <w>400</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>library: Address
+--
+- isContract(ddress account): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3040</x>
+      <y>768</y>
+      <w>736</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>TokenTimelock
+--
+- _token: IERC20
+- _beneficiary: address
+- _releaseTime: uint256
+--
++ constructor(IERC20 token, address beneficiary, uint256 releaseTime)
++ token(): IERC20
++ beneficiary(): address
++ releaseTime(): uint256
++ release()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2352</x>
+      <y>448</y>
+      <w>320</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2624</x>
+      <y>448</y>
+      <w>624</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>370.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2608</x>
+      <y>976</y>
+      <w>48</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1152</x>
+      <y>1168</y>
+      <w>48</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1952</x>
+      <y>448</y>
+      <w>384</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>220.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1152</x>
+      <y>976</y>
+      <w>1360</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>830.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1120</x>
+      <y>816</y>
+      <w>80</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;30.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1808</x>
+      <y>976</y>
+      <w>816</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>490.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1536</x>
+      <y>816</y>
+      <w>320</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3440</x>
+      <y>448</y>
+      <w>288</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3232</x>
+      <y>448</y>
+      <w>128</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3408</x>
+      <y>720</y>
+      <w>48</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>992</x>
+      <y>448</y>
+      <w>240</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1264</x>
+      <y>448</y>
+      <w>192</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3040</x>
+      <y>1104</y>
+      <w>736</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>SampleToken
+--
++ DECIMALS: uint8
++ INITIAL_SUPPLY: uint256
+--
++ constructor()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1952</x>
+      <y>1440</y>
+      <w>592</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>MyERC20Token
+--
++ name: string
++ symbol: string
++ decimals: uint8
++ INITIAL_SUPPLY: uint256
+--
++ constructor()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2656</x>
+      <y>976</y>
+      <w>784</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;470.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1920</x>
+      <y>752</y>
+      <w>384</w>
+      <h>720</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;220.0;430.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2256</x>
+      <y>976</y>
+      <w>48</w>
+      <h>496</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;290.0</additional_attributes>
+  </element>
+</diagram>

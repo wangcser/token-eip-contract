@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>410</x>
+      <y>450</y>
+      <w>470</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Interface: IFT
+--
++ transfer(address to, uint256 value)
++ transferFrom(address from, address to, uint256 value)
++ approve(address operator, uint256 value)
+
++ totalSupply(): uint256
+    
+    function balanceOf(address owner) external view returns (uint256);
+    
+    function allowance(address owner, address operator) external view returns (uint256);
+    
+    // events
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    
+    event Approval(address indexed owner, address indexed operator, uint256 value);</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

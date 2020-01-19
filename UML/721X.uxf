@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>670</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>Interface: IERC721X
+--
++ implementsERC721X(): bool
++ ownerOf(uint256 _tokenid): address
++ balanceOf(address owner): uint256
++ balanceOf(address owner, uint256 tokenId): uint256
++ tokenOwned(address owner): uint256[]
++ transfer(address to, uint256 tokenId, uint256 quantity)
++ transferFrom(address from. address to, uint256 tokenId, uint256 quantity)
++ safeTransferFrom(address from, address to, uint256 tokenId, uint256 _amount)
++ safeTransferFrom(address from, address to, uint256 tokenId, uint256 _amount, bytes data)
++ safeBatchTransferFrom(address _from, address _to, uint256[] tokenIds,uint256 _amounts, bytes _data)
++ name(): string
++ symbol(): string
+--
+Transfer(address from, address to, uint256 tokenId)
+TransferWithQuantity(address from, address to, uint256 tokenId, uint256 quantity)
+ApprovalForAll(address _owner, address _operator, bool _approved);
+BatchTransfer(address from, address to, uint256[] tokenTypes, uint256[] amounts)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

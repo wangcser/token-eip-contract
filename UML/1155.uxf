@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>420</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Interface: IERC20
+--
++ totalSupply(): uint256
++ balancedOf(address _owner): uint256
++ transfer(address _to, uint256 _value): bool
++ approve(address _spender, uint256 _value): bool
++ allowance(address _owner, address _spender): uint256
++ transferFrom(address _from, address _to, uint256 _value): bool
+--
++ totalSupply(): uint256
+Transfer(address _from, address _to, uint256, _value)
+Approval(address _owner, address _spender, uint256 _value)</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
